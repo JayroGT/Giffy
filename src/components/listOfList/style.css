@@ -1,0 +1,4 @@
+.ListOfGifs{
+  display: flex;
+  flex-wrap: wrap;
+}

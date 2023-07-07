@@ -1,26 +1,29 @@
 import React from 'react';
 import './App.css';
-import ListOfGifs from './components/ListOfGifs'
-
 import {Link, Route} from "wouter";
+import Detail from './pages/Detail';
+import Home from './pages/Home';
+import searchResults from './pages/SearchResults';
 
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <section className="App-header">  
-        <h1>App</h1>
-        
-        <Link to="/gif/peru">Peru</Link>
-        <Link to="/gif/comida">comida</Link>
-        <Link to="/gif/autos">autos</Link>
-        <Link to="/gif/aircraft">aviones</Link>
+      <section className="App-header">          
+        <Link to="/">
+           <img className="App-logo" alt="logoPag" src ='/hard.png' />
+        </Link>
+        <Route 
+          component={Home} 
+          path="/" />
+        <Route 
+          component={Detail} 
+          path="/gif/:id" />
         <Route
-        component={ListOfGifs}
-        path="/gif/:keyword"   />
+          component={searchResults}
+          path="/search/:keyword"   />
       </section>
     </div>
   );
 }
 
-export default App;
